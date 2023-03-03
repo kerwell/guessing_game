@@ -13,13 +13,9 @@ let attempts = 1;
 //when it starts
 
 while (parseInt(guess) !== targetNum) {
+  if (guess === "q") break;
   console.log(`attempt number ${attempts}`);
   attempts++;
-  if (guess === "q") {
-    guess = alert("Okay loser, lmao.");
-    break;
-    //breaks will end the loop
-  }
   if (guess > targetNum) {
     guess = prompt("Too high! Try again:");
   } else {
@@ -28,9 +24,10 @@ while (parseInt(guess) !== targetNum) {
     //though can be an 'else if' if you want
   }
 }
-//put an if for when they get it right
-
-if (parseInt(guess) === targetNum) {
+if (guess === "q") {
+  guess = alert("Okay loser, lmao.");
+  //breaks will end the loop
+} else {
   alert(`You got it! It took you ${attempts} tries!`);
   console.log(`You got it! It took you ${attempts} tries!`);
 }
