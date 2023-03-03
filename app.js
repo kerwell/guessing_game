@@ -12,16 +12,22 @@ let attempts = 1;
 // attempts start at one because once you made it past the first guess, that's
 //when it starts
 
-while (guess !== targetNum){
+while (parseInt(guess) !== targetNum){
+    console.log(`attempt number ${attempts}`)
     attempts++;
+    if (guess === 'q'){
+        guess = prompt("Okay loser, lmao.");
+        break;
+    }
     if (guess > targetNum){
-        guess = parseInt(prompt("Too high! Try again:"))
+        guess = prompt("Too high! Try again:");
     } else{
-        guess = parseInt(prompt("Too low! Try again:"))
+        guess = prompt("Too low! Try again:");
         // we are already in a loop of failure. if its not equal, its less than or greater
         //though can be an 'else if' if you want
     }
 
 }
+//put an if for when they get it right
 alert(`You got it! It took you ${attempts} tries!`)
 console.log(`You got it! It took you ${attempts} tries!`)
